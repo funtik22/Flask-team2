@@ -1,3 +1,7 @@
-<b>
-    did u say hello in hell?
-</b>
+
+{% if name %}
+<b>Hello</b>
+    {{name}}
+{% else %}
+<b>Who are you?</b>
+{% endif %}
