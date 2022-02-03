@@ -1,3 +1,6 @@
-<b>
-    hello bro
-</b>
+{% if name %}
+    <b>Hello bro</b>
+ {{name}}
+{% else %}
+    <b>Who are you?</b>
+{% endif %}
