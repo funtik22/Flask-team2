@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+import secure as secure
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -32,3 +33,20 @@ def json():
             "name": "Artem",
             "age": 16
         }
+
+
+@app.route("/upload", methods=['GET', 'POST'])
+def upload():
+    if request.method == 'GET':
+        return"""
+            <form method=post
+                  enctype=multipart/form-data>
+            <input type=file name=file>
+            <input type=submit
+                   value=upload>
+            </form>
+              """
+    else:
+        file = request.files['file']
+        file.save(file.filename)
+        return "OK"
